@@ -5,27 +5,41 @@ import {useState} from "react"
 function App() {
   const [count,setCount] = useState(11)
 
-  const incSing=()=>{
-    setCount(count+1)
-  }
+  const incSing=(val)=>{
+    setCount(count+val)
+  };
 
-  const doubInc=()=>{
-    setCount(count+2)
-  }
+  if(count>=25){
+    return <div>reached max val</div>
+  };
+
   return (
     <div className="App">
      counter: {count}
 
-     <button onClick={incSing}>inc Single</button>
-     <button  onClick={doubInc}>inc Double</button>
+     
+     
+    {/* {
+
+      count<25 &&(
+     <div>
+     <button onClick={()=>incSing(1)}>inc Single</button>
+     <button  onClick={()=>incSing(2)}>inc Double</button>
+     </div>
+      )
+    } */}
+
+    <div>
+     <button onClick={()=>incSing(1)}>inc Single</button>
+     <button  onClick={()=>incSing(2)}>inc Double</button>
+     </div>
+
+     <div>Counter is {count%2==0? "Even":"Odd"}</div>
     </div>
   );
 }
 
 
-function Counter({inc_count}){
 
-
-}
 
 export default App;
